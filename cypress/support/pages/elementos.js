@@ -101,3 +101,46 @@ export class barra_superior {
     return cy.get('nav.search')
   }
 }
+
+export class lista_Musicas {
+
+  // 🎵 Container da lista de músicas
+  get listaDeMusicas() {
+    return cy.get('.songlist')
+  }
+
+  // 🎧 Cada card individual de música
+  get musica() {
+    return cy.get('.song')
+  }
+
+  // 🖼️ Capa da música (imagem)
+  get capaMusica() {
+    return cy.get('.song .cover')
+  }
+
+  // ▶️ Botão de play da música
+  get botaoPlay() {
+    return cy.get('.song .play')
+  }
+
+  // 🎶 Título da música
+  get tituloMusica() {
+    return cy.get('.song .title')
+  }
+
+  // 🧑‍🎤 Nome do artista
+  get artistaMusica() {
+    return cy.get('.song .artist')
+  }
+
+  // 👉 Retorna o card de música pelo nome do título
+  musicaPorTitulo(titulo) {
+    return cy.get('.song').contains('.title', titulo).parents('.song')
+  }
+
+  // 👉 Retorna o card de música pelo nome do artista
+  musicaPorArtista(artista) {
+    return cy.get('.song').contains('.artist', artista).parents('.song')
+  }
+}

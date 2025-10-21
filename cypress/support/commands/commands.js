@@ -1,9 +1,10 @@
 import 'cypress-wait-until';
 
-import { barra_lateral, barra_superior } from "../pages/elementos"
+import { barra_lateral, barra_superior, lista_Musicas } from "../pages/elementos"
 
 const Barra_Lateral = new barra_lateral
 const Barra_Superior = new barra_superior
+const Lista_Musica = new lista_Musicas
 
 Cypress.Commands.add('tela_home', () => {
     cy.visit('https://parodify.vercel.app/')
@@ -48,4 +49,8 @@ Cypress.Commands.add('validar_menu_superior_visivel', () => {
 Cypress.Commands.add('validar_itens_lista', () => {
     Barra_Lateral.listaPlaylists
         .should('have.length', 8)
+})
+
+Cypress.Commands.add('validar_sessão_musicas', () => {
+    
 })
