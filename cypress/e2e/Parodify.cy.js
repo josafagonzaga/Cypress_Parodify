@@ -30,7 +30,7 @@ context('Projeto - Buger Eats', () => {
 					cy.validar_itens_lista()
 				});
 
-				it.only(`${teste}.${++complemento} - Validar exibição das capa dos albuns`, () => {
+				it(`${teste}.${++complemento} - Validar exibição das capa dos albuns`, () => {
 					cy.get('.song .cover') // espera até 10s se necessário
 						.should('have.length.at.least', 1) // garante que existe pelo menos 1 capa
 						.each(($img) => {
@@ -40,6 +40,14 @@ context('Projeto - Buger Eats', () => {
 								.and('have.attr', 'src') // valida que tem o atributo src
 								.and('not.be.empty') // e que não está vazio
 						})
+				});
+
+				it.only(`${teste}.${++complemento} - Validar titulos albuns`, () => {
+
+					cy.fixture('teste.json').then((data) => {
+
+					}
+
 				});
 			});
 

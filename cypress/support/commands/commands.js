@@ -1,10 +1,12 @@
 import 'cypress-wait-until';
-
-import { barra_lateral, barra_superior, lista_Musicas } from "../pages/elementos"
+import { nome_musicas, lista_albuns, barra_lateral, barra_superior, lista_Musicas } from "../pages/elementos"
 
 const Barra_Lateral = new barra_lateral
 const Barra_Superior = new barra_superior
-const Lista_Musica = new lista_Musicas
+//const albunsEsperados = new lista_Musicas
+const Nome_Musica = new nome_musicas
+
+
 
 Cypress.Commands.add('tela_home', () => {
     cy.visit('https://parodify.vercel.app/')
@@ -51,6 +53,12 @@ Cypress.Commands.add('validar_itens_lista', () => {
         .should('have.length', 8)
 })
 
-Cypress.Commands.add('validar_sessão_musicas', () => {
-    
+Cypress.Commands.add('validar_titulos_albuns', () => {
+    Nome_Musica.musica ({ timeout: 10000 })
+      .should('have.length', albunsEsperados.length)
+      .each(($titulo, index) => {
+        cy.wrap($titulo)
+          .should('be.visible')
+          .and('have.text', albunsEsperados[index])
+      })
 })

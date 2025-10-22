@@ -102,7 +102,7 @@ export class barra_superior {
   }
 }
 
-export class lista_Musicas {
+export class nome_musicas {
 
   // 🎵 Container da lista de músicas
   get listaDeMusicas() {
@@ -143,4 +143,16 @@ export class lista_Musicas {
   musicaPorArtista(artista) {
     return cy.get('.song').contains('.artist', artista).parents('.song')
   }
+}
+
+export class lista_albuns {
+  static validarNomesAlbuns() {
+    const albunsEsperados = [
+      'Bughium',
+      'Nice Bugs Finish Devs',
+      'Bug Suede Shoes',
+      'All The Small Sprints',
+      'The Devs Aren\'t Alright',
+      'Symphony of Production'
+    ]}
 }
