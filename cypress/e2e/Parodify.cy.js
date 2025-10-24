@@ -1,4 +1,4 @@
-context('Projeto - Buger Eats', () => {
+context('Projeto - Parodify', () => {
 	let contexto = 1;
 	let cenario = 1;
 	let teste = 1;
@@ -42,28 +42,16 @@ context('Projeto - Buger Eats', () => {
 						})
 				});
 
-				it.only(`${teste}.${++complemento} - Validar titulos albuns`, () => {
+				it(`${teste}.${++complemento} - Validar primeiro card`, () => {
 
-					cy.fixture('teste.json').then((data) => {
-
-					}
-
-				});
-			});
-
-			describe(`${++cenario} - Validações Comportamentais.`, () => {
-				beforeEach(() => {
+					cy.validar_primeiro_card()
 				});
 
-				afterEach(() => {
-					cy.clearAllLocalStorage();
-					cy.clearAllCookies();
-					cy.clearAllSessionStorage();
-				});
+				it.only(`${teste}.${++complemento} - Validar todos os cards`, () => {
 
-				it(`${++teste}.${complemento} - Validar redirecionamento do link.`, () => {
-
+					cy.validar_todos_os_cards()
 				});
+				
 			});
 		});
 	});
